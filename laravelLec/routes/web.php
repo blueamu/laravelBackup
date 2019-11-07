@@ -116,6 +116,24 @@ Route::get(
 	}
 );
 
+Route::get('mail', function() {
+    $article = App\Article::with('user')->find(1);
+
+    return Mail::send( 
+        # 인수1 : 메일내용의 뷰파일   #인수2 : 뷰에 전달할 데이터
+        'emails.articles.created',
+        compact('article'),
+        function ($message) use ($article) {
+            # use ()
+            # inner function 에서 outer function 의 변수를 사용할 수 있다. 
+            #( 자바스크립트는 그냥 사용, php 는 명시적으로 선언 해 줘야함.)
+            $message->to('youngjoon5877@gmail.com');
+            $message->subject('새 글이 등록되었습니다. -' . $article->title);
+        }
+    );
+});
+
+
 Event::listen('article.created', function($article) {
     var_dump('이벤트 받음, 받은 데이터 표시');
     var_dump($article->toArray());

@@ -56,8 +56,8 @@ return [
     */
 
     'from' => [
-        'address' => 'wdj1@yjca.c.kr',
-        'name' => 'Admin',
+        'address' => 'youngjoon5877@gmail.com',
+        'name' => '조영준',
     ],
 
     /*

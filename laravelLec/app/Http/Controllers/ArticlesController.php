@@ -135,6 +135,7 @@ class ArticlesController extends Controller
         // $articles->load('user'); // lazy loading(지연 로딩) 발생
         
         $articles = \App\Article::latest()->paginate(5);
+        //dd(view('articles.index', compact('articles'))->render());
 
         return view('articles.index', compact('articles'));
     }
@@ -172,6 +173,7 @@ class ArticlesController extends Controller
         // echo $foo;
         // return __METHOD__ . '은(는) {$id}의 값을 조회';
         $article = \App\Article::findOrFail($id);
+        dd($article, $id);
 
         return $article->toArray();
         // Illuminate\Database\Eloquent\ModelNotFoundException 
