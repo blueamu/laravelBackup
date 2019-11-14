@@ -120,7 +120,7 @@ Route::get('mail', function() {
     $article = App\Article::with('user')->find(1);
 
     return Mail::send( 
-        # 인수1 : 메일내용의 뷰파일   #인수2 : 뷰에 전달할 데이터
+        # 인수1 : 메일내용의 뷰파일      #인수2 : 뷰에 전달할 데이터
         'emails.articles.created',
         compact('article'),
         function ($message) use ($article) {
