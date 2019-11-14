@@ -173,10 +173,12 @@ class ArticlesController extends Controller
         // echo $foo;
         // return __METHOD__ . '은(는) {$id}의 값을 조회';
         $article = \App\Article::findOrFail($id);
-        dd($article, $id);
-
-        return $article->toArray();
+        //dd($article, $id);
+        //return $article->toArray();
         // Illuminate\Database\Eloquent\ModelNotFoundException 
         // 예외 발생 가능성
+
+        debug($article->toArray());
+        return view('articles.show', compact('article'));
     }
 }

@@ -133,6 +133,25 @@ Route::get('mail', function() {
     );
 });
 
+Route::get('markdown', function () {
+    $text =<<<MARK
+# 마크 다운 예제 1
+
+이 문서는 [마크다운][1]으로 썼습니다. 화면에는 HTML로 변환되어 출력됩니다.
+
+## 순서 없는 목록
+
+- 첫 번째 항목
+- 두 번째 항목[^1]
+
+[1] : http://daringfireball.net/projects/markdown
+
+[^1] : 두 번째 항목_ http://google.com
+MARK;
+    return app(ParsedownExtra::class)->text($text);
+    // app() : 헬퍼함수 - 의존성 주입 (p.160)
+});
+
 
 Event::listen('article.created', function($article) {
     var_dump('이벤트 받음, 받은 데이터 표시');
