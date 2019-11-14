@@ -9,5 +9,5 @@
 </p>
 <hr />
 <footer>
-    이 메일은 {{ config('app.url') }}에서 보냈습니다.
+    이 메일은 {{ config('app.url') }}에서 보냈습니다. 감사하십시오 휴먼.
 </footer>

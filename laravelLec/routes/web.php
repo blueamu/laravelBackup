@@ -127,8 +127,13 @@ Route::get('mail', function() {
             # use ()
             # inner function 에서 outer function 의 변수를 사용할 수 있다. 
             #( 자바스크립트는 그냥 사용, php 는 명시적으로 선언 해 줘야함.)
-            $message->to('youngjoon5877@gmail.com');
+            // $message->to('youngjoon5877@gmail.com');
+            // $message->subject('새 글이 등록되었습니다. -' . $article->title);
+            $message->from('sandboxa3414da0b53b40d0affe35380d3cd385@mailgun.org', 'Jo YoungJoon');
+            $message->to(['youngjoon5877@gmail.com', 'blueamu@naver.com']);
             $message->subject('새 글이 등록되었습니다. -' . $article->title);
+            $message->attach(storage_path('cat.png'));
+            // storage 디렉터리에 넣어줘야 함.
         }
     );
 });
