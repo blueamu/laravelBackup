@@ -13,7 +13,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        if ($this->app->environment('local')) {
+            $this->app->register(\Barryvdh\Debugbar\ServiceProvider::class);
+            // $this->app : 현재 실행중인 라라벨 어플리케이션의 객체
+        }
     }
 
     /**
